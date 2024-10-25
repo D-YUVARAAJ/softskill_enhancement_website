@@ -19,7 +19,8 @@
     }
 
     .container {
-      background-color: rgba(0, 0, 0, 0.6); /* Reduced opacity to make text clearer */
+      position: relative; /* Ensures absolute positioning works inside */
+      background-color: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
       padding: 30px;
       max-width: 600px;
@@ -39,7 +40,6 @@
       color: white;
     }
 
-    /* Adjust text formatting for subheadings and paragraphs */
     h2 {
       font-size: 1.8em;
       margin-bottom: 15px;
@@ -58,28 +58,22 @@
     /* Style for the back button */
     .back-button {
       position: absolute;
-      bottom: 30px;
+      bottom: 20px;
+      right: 20px;
       display: flex;
       justify-content: center;
       align-items: center;
       background-color: #ffffff;
       color: #333;
-      width: 60px;
-      height: 60px;
+      width: 50px;
+      height: 50px;
       border-radius: 50%;
       text-align: center;
-      font-size: 30px; /* Adjusted size for the back arrow */
+      font-size: 25px;
       cursor: pointer;
       box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     }
 
-    /* Ensures the button stays centered */
-    .back-button-container {
-      display: flex;
-      justify-content: center;
-      position: relative;
-      width: 100%;
-    }
   </style>
 </head>
 <body>
@@ -127,21 +121,9 @@
     <p>Farewells in a professional context are equally important. They reflect one's emotional intelligence and professionalism. Whether leaving a meeting, ending a business deal, or finishing a workday, a formal farewell, such as "Thank you for your time," or "Looking forward to working together," shows respect and leaves the door open for future communication. A thoughtful goodbye can be the final step in securing strong, long-lasting professional relationships.</p>
 
     <h2>Conclusion</h2>
-    <p>In summary, greetings and farewells are more than just social niceties; they are vital components of human communication that transcend cultural, emotional, and professional boundaries. These simple actions help establish trust, build relationships, and convey respect across diverse contexts. Understanding the nuances of how people greet and say goodbye, whether in person or digitally, reflects a person’s emotional intelligence and awareness of social etiquette. In an increasingly connected world, mastering the art of greetings and farewells can enhance personal connections and lead to more successful interactions in all areas of life
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-.</p>
-  </div>
-
-  <div class="back-button-container">
+    <p>In summary, greetings and farewells are more than just social niceties; they are vital components of human communication that transcend cultural, emotional, and professional boundaries. These simple actions help establish trust, build relationships, and convey respect across diverse contexts. Understanding the nuances of how people greet and say goodbye, whether in person or digitally, reflects a person’s emotional intelligence and awareness of social etiquette. In an increasingly connected world, mastering the art of greetings and farewells can enhance personal connections and lead to more successful interactions in all areas of life.</p>
+  
+    <!-- Back button inside the container -->
     <div class="back-button" onclick="window.history.back();">
       ←
     </div>

@@ -18,12 +18,33 @@
     }
 
     .container {
+      position: relative;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
       padding: 30px;
       max-width: 600px;
       color: white;
     }
+
+     /* Style for the back button */
+     .back-button {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      color: #333;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 25px;
+      cursor: pointer;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
 
     h1 {
       font-size: 2.5em;
@@ -99,6 +120,9 @@
 
     <h2>Conclusion</h2>
     <p>In conclusion, physical appearance and personality are two fundamental aspects of human identity that influence how individuals perceive themselves and are perceived by others. While physical appearance may impact initial impressions and self-esteem, personality plays a more significant role in long-term relationships and personal fulfillment. It is essential to recognize that physical beauty is fleeting, while inner qualities like kindness, intelligence, and emotional strength endure. A harmonious balance between appreciating physical traits and nurturing one's personality can lead to a more fulfilling and enriched life. Ultimately, it is the combination of both appearance and personality that shapes a person's unique identity.</p>
+    <div class="back-button" onclick="window.history.back();">
+      ←
+    </div>
   </div>
 </body>
 </html>

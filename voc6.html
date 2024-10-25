@@ -18,11 +18,29 @@
     }
 
     .container {
+      position: relative;
       background-color: rgba(0, 0, 0, 0.6);
       border-radius: 10px;
       padding: 30px;
       max-width: 600px;
       color: white;
+    }
+    .back-button {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #ffffff;
+      color: #333;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      text-align: center;
+      font-size: 25px;
+      cursor: pointer;
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
     }
 
     h1 {
@@ -128,6 +146,9 @@
       <li><strong>Tax Deduction:</strong> An expense that can be subtracted from taxable income to reduce the amount of tax owed.</li>
       <li><strong>Tax Evasion:</strong> The illegal practice of not paying taxes owed.</li>
     </ul>
+    <div class="back-button" onclick="window.history.back();">
+      ←
+    </div>
   </div>
 </body>
 </html>
