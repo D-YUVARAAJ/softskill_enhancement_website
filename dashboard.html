@@ -65,12 +65,17 @@ body {
   <i class="user-icon">&#x20;</i>
   <h1 class="dashboard-title">User DashBoard</h1>
   <div class="button-container">
-    <button class="button button-red">Vocabulary Lessons</button>
+    <button class="button button-red" onclick="redirecttovocab()">Vocabulary Lessons</button>
     <button class="button button-pink">Speech Lessons</button>
     <button class="button button-blue">Pronunciation Lessons</button>
     <button class="button button-green">Practice Test</button>
     <button class="button button-red">Test Reports</button>
   </div>
-</div>
+</div>`
+<script>
+  function redirecttovocab() {
+      window.location.href = 'vocab.html'; // Redirects to login.html
+  }
+</script>
 </body>
 </html>
