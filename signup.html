@@ -69,7 +69,7 @@
 <body>
   <div class="container">
     <h2>SignUp</h2>
-    <form>
+    <form onsubmit="return redirectToLogin(event)">
       <label for="fullName">Full Name:</label>
       <input type="text" id="fullName" name="fullName" placeholder="Enter your full name" required>
 
@@ -82,8 +82,15 @@
       <label for="confirmPassword">Confirm Password:</label>
       <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
 
-      <button type="submit">Sign Up</button>
+      <!-- Use a button element instead of input for better styling -->
+      <button type="button" onclick="redirectToLogin()">Sign Up</button>
     </form>
   </div>
+  
+  <script>
+    function redirectToLogin() {
+        window.location.href = 'login.html'; // Redirects to login.html
+    }
+  </script>
 </body>
 </html>
