@@ -73,17 +73,19 @@ input[type="submit"]:hover {
 <body>
 
 <div class="container">
-  <h2>LOGIN</h2>
-  <form>
-    <input type="text" placeholder="Username or Email" required>
-    <input type="password" placeholder="Password" required>
-    <input type="submit" value="Login">
-  </form>
-  <div class="links">
-    <a href="signup.html">Sign Up?</a>
-    <a href="paswword.html">Forgot Password?</a>
-  </div>
+    <h2>LOGIN</h2>
+    <form id="loginForm" onsubmit="return validateLogin(event)">
+        <input type="text" id="username" placeholder="Username or Email" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <input type="submit" value="Login">
+        <p id="error-message" class="error"></p>
+    </form>
+    <div class="links">
+      <a href="signup.html">Sign Up?</a>
+      <a href="paswword.html">Forgot Password?</a>
+    </div>
 </div>
+
 <script src="login.js"></script>
 </body>
 </html>
