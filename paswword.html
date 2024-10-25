@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>password</title>
+<style>
+
+body {
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  background-color: #f4f4f4;
+
+  padding: 20px;
+  background-image: url("bg1.jpg");
+
+
+}
+
+
+.container {
+
+    background-color: #fff;
+      padding: 30px;
+      border-radius:35px;
+      border : 2.5px solid black;
+      background-color: rgba(192, 78, 202, 0.85); /* White with opacity */
+  background-blend-mode: overlay; /* Blend the im
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      text-align: left; /* Align text to left */
+      width: 300px; /* Reduce container width */
+      margin: auto; /* Center the container */
+
+
+}
+
+
+input[type="text"], input[type="password"] {
+
+  width: 100%;
+
+  padding: 12px 20px;
+
+  margin: 8px 0;
+
+  display: inline-block;
+
+  border: 1px solid #ccc;
+
+  box-sizing: border-box;
+
+  border-radius: 4px;
+
+}
+
+
+button {
+
+  background-color: #4CAF50;
+
+  color: white;
+
+  padding: 12px 20px;
+
+  margin: 8px 0;
+
+  border: none;
+
+  cursor: pointer;
+
+  width: 100%;
+
+  border-radius: 4px;
+
+}
+
+
+button:hover {
+
+  background-color: #45a049;
+
+}
+
+
+h2 {
+
+  text-align: center;
+
+  margin-bottom: 20px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<div class="container">
+
+  <h2>FORGOT PASSWORD?</h2>
+
+  <form>
+
+    <label for="email">Email:</label>
+
+    <input type="text" id="email" name="email" placeholder="Your email...">
+
+    <label for="password">Set new password:</label>
+
+    <input type="password" id="password" name="password" placeholder="Your new password...">
+
+    <label for="password2">Re-enter password:</label>
+
+    <input type="password" id="password2" name="password2" placeholder="Re-enter your password...">
+
+    <button type="submit">Submit</button>
