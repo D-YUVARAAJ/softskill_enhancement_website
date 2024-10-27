@@ -117,7 +117,7 @@
         { question: "The general tried to instill in his troops the hope of victory. Instill means…", answers: [ { text: "Infuse.", correct: true }, { text: "Delay.", correct: false }, { text: "Inscribe.", correct: false }, { text: "Indict.", correct: false } ] },
         { question: "The winning team of the World Series often has a jovial attitude. Jovial means…", answers: [ { text: "Merry.", correct: true }, { text: "Sad.", correct: false }, { text: "Somber.", correct: false }, { text: "Laborious.", correct: false } ] },
         { question: "The plant entered the latent phase of development in the fall. Latent means…", answers: [ { text: "First.", correct: false }, { text: "Growth.", correct: false }, { text: "Last.", correct: false }, { text: "Dormant.", correct: true } ] },
-        { question: "The yacht club members were excited about conditions on the loch. Loch means…", answers: [ { text: "Water.", correct: false }, { text: "Lake.", correct: true }, { text: "Gulf.", correct: false }, { text: "Ocean.", correct: false } ] },
+        { question: "The yacht club members were excited about conditions on the loch. Loch means…", answers: [ { text: "Water.", correct: false }, { text: "Lake.", correct: true }, { text: "Gulf.", correct: false }, { text: "Ocean.", correct: false } ] }
     ];
 
     const questionElement = document.getElementById("question");
@@ -127,9 +127,22 @@
     let currentQuestionIndex = 0;
     let score = 0;
 
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function shuffleQuestionsAndAnswers() {
+        shuffleArray(questions);
+        questions.forEach(question => shuffleArray(question.answers));
+    }
+
     function startQuiz() {
         currentQuestionIndex = 0;
         score = 0;
+        shuffleQuestionsAndAnswers();
         nextButton.innerHTML = "Next";
         showQuestion();
     }
@@ -180,7 +193,7 @@
     function showScore() {
         resetState();
         questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
-        nextButton.innerHTML = "Play Again";
+        nextButton.innerHTML = "Revise";
         nextButton.style.display = "block";
     }
 
