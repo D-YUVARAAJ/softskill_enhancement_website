@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>SPEECH</title>
+   <style>
+       * {
+           margin: 0;
+           padding: 0;
+           font-family: 'Poppins', sans-serif;
+           box-sizing: border-box;
+       }
+
+       body {
+           background: #001e4d;
+       }
+
+       .app {
+           background: #fff;
+           width: 90%;
+           max-width: 600px;
+           margin: 100px auto 0;
+           border-radius: 10px;
+           padding: 30px;
+       }
+
+       .app h1 {
+           font-size: 25px;
+           color: #001e4d;
+           font-weight: 600;
+           border-bottom: 1px solid #333;
+           padding-bottom: 30px;
+       }
+
+       .quiz {
+           padding: 20px 0;
+       }
+
+       .quiz h2 {
+           font-size: 18px;
+           color: #001e4d;
+           font-weight: 600;
+       }
+
+       .btn {
+           background: #fff;
+           color: #222;
+           font-weight: 500;
+           width: 100%;
+           border: 1px solid #222;
+           padding: 10px;
+           margin: 10px 0;
+           text-align: left;
+           border-radius: 4px;
+           cursor: pointer;
+           transition: all 0.3s;
+       }
+
+       .btn:hover:not([disabled]) {
+           background: #222;
+           color: #fff;
+       }
+
+       .btn:disabled {
+           cursor: no-drop;
+       }
+
+       #next-btn {
+           background: #001e4d;
+           color: #fff;
+           font-weight: 500;
+           width: 150px;
+           border: 0;
+           padding: 10px;
+           margin: 20px auto 0;
+           border-radius: 4px;
+           cursor: pointer;
+           display: none;
+       }
+
+       .correct {
+           background: #9aeabc;
+       }
+
+       .incorrect {
+           background: #ff9393;
+       }
+   </style>
+</head>
+<body>
+<div class="app">
+    <h1>SPEECH TEST</h1>
+    <div class="quiz">
+        <h2 id="question">Question goes here</h2>
+        <div id="answer-buttons"></div>
+        <button id="next-btn">Next</button>
+    </div>
+</div>
+
+<script>
+    const questions = [
+        { question: "What is the main purpose of effective speech in soft skills?", answers: [ { text: "To entertain the audience", correct: false }, { text: "To communicate ideas clearly and persuasively", correct: true }, { text: "To use complex vocabulary", correct: false }, { text: "To keep the audience quiet", correct: false } ] },
+        { question: "What does an effective tone in speech help convey?", answers: [ { text: "Emotion and emphasis", correct: true }, { text: "The length of the speech", correct: false }, { text: "A monotonous sound", correct: false }, { text: "Disinterest in the topic", correct: false } ] },
+        { question: "Which of the following is essential for good speech delivery?", answers: [ { text: "Speaking very fast", correct: false }, { text: "Having good eye contact", correct: true }, { text: "Avoiding pauses completely", correct: false }, { text: "Reading from a script verbatim", correct: false } ] },
+        { question: "What is the role of pauses in a speech?", answers: [ { text: "To confuse the audience", correct: false }, { text: "To add emphasis and allow ideas to sink in", correct: true }, { text: "To make the speech longer", correct: false }, { text: "To make the speaker appear nervous", correct: false } ] },
+        { question: "Which of these is an effective strategy for engaging an audience?", answers: [ { text: "Speaking in a monotone voice", correct: false }, { text: "Using gestures and facial expressions", correct: true }, { text: "Avoiding eye contact", correct: false }, { text: "Using only technical terms", correct: false } ] },
+        { question: "What should be avoided to maintain clarity in speech?", answers: [ { text: "Slow pacing", correct: false }, { text: "Long and complex sentences", correct: true }, { text: "Clear pronunciation", correct: false }, { text: "Proper pauses", correct: false } ] },
+        { question: "What is the purpose of active listening in communication?", answers: [ { text: "To wait for your turn to speak", correct: false }, { text: "To plan a response", correct: false }, { text: "To fully understand and respond to the speaker", correct: true }, { text: "To interrupt when necessary", correct: false } ] },
+        { question: "Which of the following helps in reducing speech anxiety?", answers: [ { text: "Avoiding eye contact", correct: false }, { text: "Speaking very quickly", correct: false }, { text: "Practicing in front of others", correct: true }, { text: "Focusing on filler words", correct: false } ] },
+        { question: "What is an effective way to start a speech?", answers: [ { text: "Apologize for taking their time", correct: false }, { text: "Begin with a relevant story or question", correct: true }, { text: "Immediately present complex data", correct: false }, { text: "Read directly from notes", correct: false } ] },
+        { question: "When speaking, what is the best way to ensure your message is clear?", answers: [ { text: "Use technical jargon frequently", correct: false }, { text: "Speak as fast as possible", correct: false }, { text: "Use simple language and structure", correct: true }, { text: "Avoid making eye contact", correct: false } ] },
+        { question: "How can you effectively manage your tone during a speech?", answers: [ { text: "Keep the same pitch throughout", correct: false }, { text: "Vary pitch and volume as appropriate", correct: true }, { text: "Speak in a whisper", correct: false }, { text: "Use a loud voice constantly", correct: false } ] },
+        { question: "Which element helps maintain the audience's interest?", answers: [ { text: "Constantly reading notes", correct: false }, { text: "Making eye contact and using expressions", correct: true }, { text: "Avoiding gestures", correct: false }, { text: "Looking at the floor while speaking", correct: false } ] },
+        { question: "What is a critical component of non-verbal communication in a speech?", answers: [ { text: "Eye contact", correct: true }, { text: "Pausing too long", correct: false }, { text: "Avoiding any gestures", correct: false }, { text: "Staring at notes", correct: false } ] },
+        { question: "What can you do if you notice your audience looks confused?", answers: [ { text: "Ignore their reactions", correct: false }, { text: "Ask clarifying questions or repeat information", correct: true }, { text: "Speak more quickly", correct: false }, { text: "Avoid eye contact", correct: false } ] },
+        { question: "What type of language should be used to make speech more effective?", answers: [ { text: "Complex and technical language", correct: false }, { text: "Clear, simple, and concise language", correct: true }, { text: "Only written language", correct: false }, { text: "Informal slang", correct: false } ] },
+        { question: "Which of these is a barrier to effective speech?", answers: [ { text: "Active listening", correct: false }, { text: "Speaking clearly", correct: false }, { text: "Using filler words frequently", correct: true }, { text: "Maintaining good eye contact", correct: false } ] },
+        { question: "Which of these is considered good practice for speech preparation?", answers: [ { text: "Skipping practice sessions", correct: false }, { text: "Practicing with an audience or in front of a mirror", correct: true }, { text: "Ignoring feedback", correct: false }, { text: "Memorizing word-for-word", correct: false } ] },
+        { question: "What does varying your pitch in a speech help with?", answers: [ { text: "Makes it harder to understand", correct: false }, { text: "Increases audience engagement", correct: true }, { text: "Decreases emphasis on key points", correct: false }, { text: "Reduces credibility", correct: false } ] },
+        { question: "An effective conclusion in a speech should:", answers: [ { text: "Introduce new topics", correct: false }, { text: "Summarize key points and reinforce the message", correct: true }, { text: "Be short and unrelated", correct: false }, { text: "Ignore audience feedback", correct: false } ] },
+        { question: "How can gestures improve speech effectiveness?", answers: [ { text: "By emphasizing important points", correct: true }, { text: "By distracting the audience", correct: false }, { text: "By keeping hands still", correct: false }, { text: "By making it longer", correct: false } ] }
+    ];
+
+    const questionElement = document.getElementById("question");
+    const answerButtons = document.getElementById("answer-buttons");
+    const nextButton = document.getElementById("next-btn");
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+    }
+
+    function shuffleQuestionsAndAnswers() {
+        shuffleArray(questions);
+        questions.forEach(question => shuffleArray(question.answers));
+    }
+
+    function startQuiz() {
+        currentQuestionIndex = 0;
+        score = 0;
+        shuffleQuestionsAndAnswers();
+        nextButton.innerHTML = "Next";
+        showQuestion();
+    }
+
+    function showQuestion() {
+        resetState();
+        const currentQuestion = questions[currentQuestionIndex];
+        const questionNo = currentQuestionIndex + 1;
+        questionElement.innerHTML = `${questionNo}. ${currentQuestion.question}`;
+
+        currentQuestion.answers.forEach(answer => {
+            const button = document.createElement("button");
+            button.innerHTML = answer.text;
+            button.classList.add("btn");
+            answerButtons.appendChild(button);
+            if (answer.correct) {
+                button.dataset.correct = answer.correct;
+            }
+            button.addEventListener("click", selectAnswer);
+        });
+    }
+
+    function resetState() {
+        nextButton.style.display = "none";
+        while (answerButtons.firstChild) {
+            answerButtons.removeChild(answerButtons.firstChild);
+        }
+    }
+
+    function selectAnswer(e) {
+        const selectedBtn = e.target;
+        const isCorrect = selectedBtn.dataset.correct === "true";
+        if (isCorrect) {
+            selectedBtn.classList.add("correct");
+            score++;
+        } else {
+            selectedBtn.classList.add("incorrect");
+        }
+        Array.from(answerButtons.children).forEach(button => {
+            if (button.dataset.correct === "true") {
+                button.classList.add("correct");
+            }
+            button.disabled = true;
+        });
+        nextButton.style.display = "block";
+    }
+
+    function showScore() {
+        resetState();
+        questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+        nextButton.innerHTML = "Revise";
+        nextButton.style.display = "block";
+    }
+
+    function handleNextButton() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            showQuestion();
+        } else {
+            showScore();
+        }
+    }
+
+    nextButton.addEventListener("click", () => {
+        if (currentQuestionIndex < questions.length) {
+            handleNextButton();
+        } else {
+            startQuiz();
+        }
+    });
+
+    startQuiz();
+</script>
+</body>
+</html>
