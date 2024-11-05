@@ -65,9 +65,20 @@
   <div class="container">
     <h1>PRONUNCIATION LESSONS</h1>
    
-    <button>BEGINNER LEVEL</button>
-    <button>INTERMEDIATE LEVEL</button>
-    <button>ADVANCED LEVEL</button>
+    <button onclick="RedirectTobeg()">BEGINNER LEVEL</button>
+    <button onclick="RedirectToint()">INTERMEDIATE LEVEL</button>
+    <button onclick="RedirectToadv()">ADVANCED LEVEL</button>
   </div>
+  <script>
+    function RedirectTobeg() {
+        window.location.href = 'pronoun_beginner.html'; 
+    }
+    function RedirectToint() {
+        window.location.href = 'pronoun_intermediate.html'; 
+    }
+    function RedirectToadv() {
+        window.location.href = 'pronoun_advanced.html';
+    }
+  </script>
 </body>
 </html>
