@@ -130,16 +130,28 @@
         <h1 class="dashboard-title">User Dashboard</h1>
         <div class="button-container">
             <button class="button button-red" onclick="redirectToVocab()">Vocabulary Lessons</button>
-            <button class="button button-pink">Speech Lessons</button>
-            <button class="button button-blue">Pronunciation Lessons</button>
-            <button class="button button-green">Practice Test</button>
-            <button class="button button-red">Test Reports</button>
+            <button class="button button-pink" onclick="redirectToSp()">Speech Lessons</button>
+            <button class="button button-blue"onclick="redirectToPro()">Pronunciation Lessons</button>
+            <button class="button button-green" onclick="redirectToPra()">Practice Test</button>
+            <button class="button button-red"onclick="redirectToTr()">Test Reports</button>
         </div>
     </div>
 
     <script>
         function redirectToVocab() {
-            window.location.href = 'vocab.html'; // Redirects to vocab.html
+            window.location.href = 'vocab.html'; 
+        }
+        function redirectToSp() {
+            window.location.href = 'speech_home.html';         
+        }
+        function redirectToPro() {
+            window.location.href = 'pronounciation_home.html';     
+        }
+        function redirectToPra() {
+            window.location.href = '';       
+        }
+        function redirectToPra() {
+            window.location.href = '';
         }
     </script>
 </body>
