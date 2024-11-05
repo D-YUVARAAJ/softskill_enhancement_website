@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Report Analyzer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            background-image: url('gradiant.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+        .container {
+            width: 80%;
+            max-width: 800px;
+            background-color: rgba(140, 177, 168, 0.2); /* 20% opacity */
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            text-align: center;
+        }
+        .controls {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .controls label, .controls select {
+            font-size: 1rem;
+        }
+        .report-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .report-item {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            display: flex;
+            justify-content: space-between;
+        }
+        .report-item:last-child {
+            border-bottom: none;
+        }
+        .report-item div {
+            flex-basis: 48%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Test Report Analyzer</h2>
+        <div class="controls">
+            <label for="sortCriteria">Sort by:</label>
+            <select id="sortCriteria" onchange="sortReports()">
+                <option value="date">Date</option>
+                <option value="type">Test Type</option>
+            </select>
+        </div>
+        <ul class="report-list" id="reportList">
+            <!-- Test Reports will be populated here -->
+        </ul>
+    </div>
+    <script>
+        // Test report data
+        const reports = [
+            { type: 'Vocabulary Test 1', date: '2024-08-15' },
+            { type: 'Speech Test 1', date: '2024-07-12' },
+            { type: 'Pronunciation Test 3', date: '2024-09-01' },
+            { type: 'Vocabulary Test 2', date: '2024-09-03' },
+            { type: 'Speech Test 2', date: '2024-08-25' },
+        ];
+
+        // Function to display reports
+        function displayReports(sortedReports) {
+            const reportList = document.getElementById('reportList');
+            reportList.innerHTML = ''; // Clear existing reports
+            sortedReports.forEach(report => {
+                const li = document.createElement('li');
+                li.className = 'report-item';
+                li.innerHTML = `<div>${report.type}</div><div>${report.date}</div>`;
+                reportList.appendChild(li);
+            });
+        }
+
+        // Function to sort reports based on selected criteria
+        function sortReports() {
+            const criteria = document.getElementById('sortCriteria').value;
+            let sortedReports = [...reports];
+            if (criteria === 'date') {
+                sortedReports.sort((a, b) => new Date(a.date) - new Date(b.date));
+            } else if (criteria === 'type') {
+                sortedReports.sort((a, b) => a.type.localeCompare(b.type));
+            }
+            displayReports(sortedReports);
+        }
+
+        // Initial display
+        sortReports();
+    </script>
+</body>
+</html>
