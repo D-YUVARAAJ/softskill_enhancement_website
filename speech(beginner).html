@@ -64,10 +64,24 @@
   <div class="container">
     <h1>BASIC PRONOUNCIATIONS</h1>
    
-    <button>INTRODUCTION TO PUBLIC SPEAKING </button>
-    <button>OVERCOMING SPEECH ANXIETY</button>
-    <button>VOCAL WARMUP AND CONTROL</button>
-    <button>NON VERBAL COMMUNCATION</button>
+    <button onclick="RedirectToint()">INTRODUCTION TO PUBLIC SPEAKING </button>
+    <button onclick="RedirectTover()">OVERCOMING SPEECH ANXIETY</button>
+    <button onclick="RedirectTovoc()">VOCAL WARMUP AND CONTROL</button>
+    <button onclick="RedirectTonon()">NON VERBAL COMMUNCATION</button>
   </div>
+  <script>
+    function RedirectToint() {
+        window.location.href = 'speech_beg1.html'; 
+    }
+    function RedirectTover() {
+        window.location.href = 'speech_beg2.html'; 
+    }
+    function RedirectTovoc() {
+        window.location.href = 'speech_beg3.html'; 
+    }
+    function RedirectTonon() {
+        window.location.href = 'speech_beg4.html';
+    }
+  </script>
 </body>
 </html>
